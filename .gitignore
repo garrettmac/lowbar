@@ -1,0 +1,4 @@
+node_modules
+bower_dependancies
+.tmp
+lowbar/node_modules
