@@ -24,9 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *   output =>
  */
 
-// const _ = require("lodash")
-// const URL = require("url")
-
+// TODO format, lint and write unit tests
 var hostname = function hostname() {
   var uri = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
 
@@ -76,7 +74,6 @@ var titleCase = function titleCase() {
 
 // titleCase(words)
 
-
 /**
  * Capitalize Each Word in string
  * @method TitleCase
@@ -107,7 +104,7 @@ var replaceAll = function replaceAll() {
  * @return (*): Returns the resolved value.
  *
  */
-var getFirst = function getFirst() {
+var getFirstOf = function getFirstOf() {
   var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var arrOfPropNames = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var defaultValue = arguments[2];
@@ -155,19 +152,15 @@ _lodash2.default.mixin({
   domain: domain,
   titleCase: titleCase,
   replaceAll: replaceAll,
-  getFirst: getFirst,
   //OBJ
   removeFalsy: removeFalsy,
+  getFirstOf: getFirstOf,
   //ARRAY
   toObject: toObject,
+  //UTIL
   make: make
 });
 // }
 
 
 exports.default = _lodash2.default;
-
-// let uri = "https://runkit.com/vygaio/utils"
-// let words = "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-
-// let r=_.make(uri, _.domain, _.titleCase)
