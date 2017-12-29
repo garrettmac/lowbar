@@ -1,4 +1,6 @@
 node_modules
 bower_dependancies
 .tmp
+.DS_Store
+*.DS_Store
 lowbar/node_modules
