@@ -54,6 +54,19 @@ var domain = function domain() {
     return "";
   }
 };
+/**
+ * @method url
+  */
+
+var url = function url() {
+  var uri = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+
+  try {
+    return new _url2.default.parse(uri);
+  } catch (e) {
+    return "";
+  }
+};
 
 /**
  * Capitalize Each Word in string
