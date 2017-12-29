@@ -41,6 +41,19 @@
      return ""
    }
  }
+ /**
+  * @method url
+
+  */
+
+
+ const url = (uri = "") => {
+   try {
+     return new URL.parse(uri)
+   } catch (e) {
+     return ""
+   }
+ }
 
 
  /**

@@ -138,6 +138,23 @@ let url = "https://github.com/garrettmac/lowbar"
 _.hostname(url);
 // => Github
 ```
+####  _.url()
+
+gets url info 
+
+First argument - url.
+
+
+*Example*
+
+```jsx
+import _ from 'lowbar'; // or from 'lodash' with alias
+
+let url = "https://github.com/garrettmac/lowbar"
+
+_.url(url);
+// => {"protocol":"https:","slashes":true,"auth":null,"host":"github.com","port":null,"hostname":"github.com","hash":null,"search":null,"query":null,"pathname":"/garrettmac/lowbar","path":"/garrettmac/lowbar","href":"https://github.com/garrettmac/lowbar"}
+```
 
 
 
