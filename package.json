@@ -1,6 +1,6 @@
 {
   "name": "lowbar",
-  "version": "0.0.0-development",
+  "version": "0.8.0",
   "description": "Lowbar - lodash with a few extras",
   "scripts": {
     "prepublish": "yarn run build",
