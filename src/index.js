@@ -1,11 +1,6 @@
- // const _ = require("lodash")
- // const URL = require("url")
-
+// TODO format, lint and write unit tests
  import URL from 'url';
  import _ from 'lodash';
-
-
-
 
 
  /**
@@ -28,13 +23,6 @@
  }
 
 
-
-
-
-
-
-
-
  /**
   * @method domain
   * @param {string} uri - a url
@@ -55,14 +43,6 @@
  }
 
 
-
-
-
-
-
-
-
-
  /**
   * Capitalize Each Word in string
   * @method titleCase
@@ -78,12 +58,6 @@
 
 
  // titleCase(words)
-
-
-
-
-
-
 
  /**
   * Capitalize Each Word in string
@@ -114,7 +88,7 @@
   * @return (*): Returns the resolved value.
   *
   */
- const getFirst = (obj = {}, arrOfPropNames = [], defaultValue) => arrOfPropNames.map(o => _.get(obj, o)).filter(x => x)[0] || defaultValue;
+ const getFirstOf = (obj = {}, arrOfPropNames = [], defaultValue) => arrOfPropNames.map(o => _.get(obj, o)).filter(x => x)[0] || defaultValue;
 
 
 
@@ -146,21 +120,15 @@
    domain,
    titleCase,
    replaceAll,
-   getFirst,
    //OBJ
    removeFalsy,
+   getFirstOf,
    //ARRAY
    toObject,
+   //UTIL
    make,
  })
  // }
 
 
  export default _
-
-
-
- // let uri = "https://runkit.com/vygaio/utils"
- // let words = "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-
- // let r=_.make(uri, _.domain, _.titleCase)
