@@ -66,7 +66,7 @@ First argument - string.
 
 ```jsx
 import _ from 'lowbar'; // or from 'lodash' with alias
-
+// const _ = require("lowbar").default; // for es5
 let text = "hello world"
 
 _.titleCase(text);
