@@ -1,252 +1,80 @@
+# lowbar v4.17.4
 
+[Site](https://lowbar.com/) |
+[Docs](https://lowbar.com/docs) |
+[FP Guide](https://github.com/garrettmac/lowbar/wiki/FP-Guide) |
+[Contributing](https://github.com/garrettmac/lowbar/blob/master/.github/CONTRIBUTING.md) |
+[Wiki](https://github.com/garrettmac/lowbar/wiki "Changelog, Roadmap, etc.") |
+[Code of Conduct](https://js.foundation/community/code-of-conduct) |
+[Twitter](https://twitter.com/bestiejs) |
+[Chat](https://gitter.im/garrettmac/lowbar)
 
+The [lowbar](https://lowbar.com/) library exported as a [UMD](https://github.com/umdjs/umd) module.
 
+Generated using [lowbar-cli](https://www.npmjs.com/package/lowbar-cli):
+```shell
+$ npm run build
+$ lowbar -o ./dist/lowbar.js
+$ lowbar core -o ./dist/lowbar.core.js
+```
 
+## Download
 
+ * [Core build](https://raw.githubusercontent.com/garrettmac/lowbar/4.17.4/dist/lowbar.core.js) ([~4 kB gzipped](https://raw.githubusercontent.com/garrettmac/lowbar/4.17.4/dist/lowbar.core.min.js))
+ * [Full build](https://raw.githubusercontent.com/garrettmac/lowbar/4.17.4/dist/lowbar.js) ([~24 kB gzipped](https://raw.githubusercontent.com/garrettmac/lowbar/4.17.4/dist/lowbar.min.js))
+ * [CDN copies](https://www.jsdelivr.com/projects/lowbar) [![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/lowbar/badge)](https://www.jsdelivr.com/package/npm/lowbar)
 
-![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![github](https://img.shields.io/github/stars/garrettmac/lowbar.svg)
-![lowbar issues](https://img.shields.io/issuestats/p/github/garrettmac/lowbar.svg)
-![github](https://img.shields.io/github/forks/garrettmac/lowbar.svg)
-![twitter](https://img.shields.io/twitter/url/https/github.com/garrettmac/lowbar.svg)
-![lowbar](https://badges.gitter.im/garrettmac/lowbar.svg)
+lowbar is released under the [MIT license](https://raw.githubusercontent.com/garrettmac/lowbar/4.17.4/LICENSE) & supports modern environments.<br>
+Review the [build differences](https://github.com/garrettmac/lowbar/wiki/build-differences) & pick one that’s right for you.
 
-# lowbar
-
-
-All of the lodash function with a couple extras
 ## Installation
 
-- Install `lowbar` first
-
-```bash
-yarn add lowbar
+In a browser:
+```html
+<script src="lowbar.js"></script>
 ```
 
-
-
-## Setup 
-
-### with babel 
-
-in your `.babelrc`
-
-Using [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
-
-```json
-{
-  ...
-  "plugins": [
-    ["module-resolver",
-        "alias": {
-          "lodash": "lowbar"
-        }
-    ]
-  ]
-  ...
-}
-        
-```
-## Extra Functions
-
-
-### Strings
-
-
-####  _.titleCase()
-
-makes each word of string uppercase
-
-First argument - string.
-
-
-
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-// const _ = require("lowbar").default; // for es5
-let text = "hello world"
-
-_.titleCase(text);
-// => Hello World
+Using npm:
+```shell
+$ npm i -g npm
+$ npm i --save lowbar
 ```
 
+In Node.js:
+```js
+// Load the full build.
+var _ = require('lowbar');
+// Load the core build.
+var _ = require('lowbar/core');
+// Load the FP build for immutable auto-curried iteratee-first data-last methods.
+var fp = require('lowbar/fp');
 
+// Load method categories.
+var array = require('lowbar/array');
+var object = require('lowbar/fp/object');
 
-####  _.replaceAll()
-
-
-
-First argument - input string.
-
-Second argument - search sub-string
-
-Third argument - replace sub-string
-
-  
-
-
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let url = "https://github.com/garrettmac/lowbar"
-
-_.replaceAll(url, 'b');
-// => https://githu.com/garrettmac/lowar
-
-_.replaceAll(url, 'b', '🤙');
-// => https://githu🅱️.com/garrettmac/low🅱️ar
+// Cherry-pick methods for smaller browserify/rollup/webpack bundles.
+var at = require('lowbar/at');
+var curryN = require('lowbar/fp/curryN');
 ```
 
-####  _.domain()
+**Note:**<br>
+Install [n_](https://www.npmjs.com/package/n_) for lowbar use in the Node.js < 6 REPL.
 
-gets domain name of url
+## Why lowbar?
 
-First argument - url.
+lowbar makes JavaScript easier by taking the hassle out of working with arrays,<br>
+numbers, objects, strings, etc. lowbar’s modular methods are great for:
 
+ * Iterating arrays, objects, & strings
+ * Manipulating & testing values
+ * Creating composite functions
 
-*Example*
+## Module Formats
 
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
+lowbar is available in a [variety of builds](https://lowbar.com/custom-builds) & module formats.
 
-let url = "https://github.com/garrettmac/lowbar"
-
-_.domain(url);
-// => Github.com
-```
-
-####  _.hostname()
-
-gets hostname name of url
-
-First argument - url.
-
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let url = "https://github.com/garrettmac/lowbar"
-
-_.hostname(url);
-// => Github
-```
-####  _.url()
-
-gets url info 
-
-First argument - url.
-
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let url = "https://github.com/garrettmac/lowbar"
-
-_.url(url);
-// => {"protocol":"https:","slashes":true,"auth":null,"host":"github.com","port":null,"hostname":"github.com","hash":null,"search":null,"query":null,"pathname":"/garrettmac/lowbar","path":"/garrettmac/lowbar","href":"https://github.com/garrettmac/lowbar"}
-```
-
-
-
-### Objects
-
-####  _.removeFalsy()
-
-removes falsy false from object 
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let obj = { 
-            und:undefined,
-            num:123123, 
-            nul: null, 
-            fal: false, 
-            empy: '',
-            string:"myString",
-            zero: 0
-        };
-
-_.removeFalsy(obj);
-// => {num: 123123, string: "myString"}
-```
-
-####  _.getFirstOf()
-
-same as _.get() except you can pass multipul arguments to in an array and it will return the first.
-
-First argument - object.
-
-Second argument - array of `_.get()` paths to properties.
-
-Third argument - default if no matches found.
-
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let obj = { 
-            parent:{
-              name: "bob"
-            },
-            children:[
-              {name: "sally", age: 30}
-            ]
-        };
-
-_.getFirstOf(obj, ['parent.name','children[0].name']);
-// => bob // got first match, this was parent name
-_.getFirstOf(obj, ['children[0].name','parent.name']);
-// => sally // got first match, this was children name
-_.getFirstOf(obj, ['parent.age','children[0].age']);
-// => 30 // no parent age so got children age
-_.getFirstOf(obj, ['parent.lastName','children[0].lastName'], "saget");
-// => saget // no parent lastName, no children lastName so got default
-_.getFirstOf(obj, ['parent.middleName','children[0].middleName']);
-// => undefinded // no middleName from parent or children
-```
-
-
-
-### Util
-
-####  _.make()
-
-builds a lodash function for you.
-
-First argument - is your value.
-
-2nd argument to infinity - functions you want apply to first argument.
-
-*Example*
-
-```jsx
-import _ from 'lowbar'; // or from 'lodash' with alias
-
-let url = "https://github.com/garrettmac/lowbar"
-
-_.make(url, _.domain, _.titleCase); // same as _.titleCase(_.domain(url))
-
-
-output >> Github.com
-
-
-```
-
-
-# Contributing
-Please share what you got and make a pr!
+ * [lowbar](https://www.npmjs.com/package/lowbar) & [per method packages](https://www.npmjs.com/browse/keyword/lowbar-modularized)
+ * [lowbar-es](https://www.npmjs.com/package/lowbar-es), [babel-plugin-lowbar](https://www.npmjs.com/package/babel-plugin-lowbar), & [lowbar-webpack-plugin](https://www.npmjs.com/package/lowbar-webpack-plugin)
+ * [lowbar/fp](https://github.com/garrettmac/lowbar/tree/npm/fp)
+ * [lowbar-amd](https://www.npmjs.com/package/lowbar-amd)
